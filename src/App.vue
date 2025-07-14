@@ -9,7 +9,7 @@
 <script>
 import HeroSection from './components/HeroSection.vue';
 import ResultPanel from './components/ResultPanel.vue';
-
+alert('Hello World');
 export default {
   name: 'App',
   components: {
