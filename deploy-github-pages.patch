@@ -1,0 +1,107 @@
+From 1796d19c0c932b7423b8c18970b5b933143ddc5c Mon Sep 17 00:00:00 2001
+From: Energy MVP <you@example.com>
+Date: Mon, 14 Jul 2025 18:43:06 +0000
+Subject: [PATCH] =?UTF-8?q?=F0=9F=94=A7=20Add=20GitHub=20Pages=20deploy=20?=
+ =?UTF-8?q?config?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ README.md      | 39 +++++++++++++++++++++++++++++++++++++++
+ package.json   |  8 +++++---
+ vite.config.js |  8 +++++---
+ 3 files changed, 49 insertions(+), 6 deletions(-)
+ create mode 100644 README.md
+
+diff --git a/README.md b/README.md
+new file mode 100644
+index 0000000..04bf556
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,39 @@
++# 🔮 Energy-MVP
++
++Веб-прототип для анализа текущего энергетического состояния и совместимости по дате рождения.
++
++## 🚀 Технологии
++- [Vite](https://vitejs.dev/)
++- [Vue 3](https://vuejs.org/)
++- [Less](https://lesscss.org/)
++
++## 📦 Структура
++
++```
++.
++├── public/
++│   └── illustration.png        # Иллюстрация на главном экране
++├── src/
++│   ├── App.vue                 # Корневой компонент
++│   ├── main.js                 # Точка входа
++│   ├── components/
++│   │   ├── HeroSection.vue     # Экран с вводом даты и описанием
++│   │   └── ResultPanel.vue     # Результаты (пока-заглушка)
++│   └── styles/
++│       ├── main.less           # Глобальные стили
++│       └── theme.less          # Цвета и переменные
++```
++
++## 🧪 Запуск локально
++
++```bash
++npm install
++npm run dev
++```
++
++Открой в браузере: [http://localhost:5173](http://localhost:5173)
++
++## 🧩 Планы:
++- Интеграция с расчётами
++- Анимации и визуализация
++- Деплой на Vercel
+diff --git a/package.json b/package.json
+index a087e91..48b006e 100644
+--- a/package.json
++++ b/package.json
+@@ -4,7 +4,8 @@
+   "scripts": {
+     "dev": "vite",
+     "build": "vite build",
+-    "preview": "vite preview"
++    "preview": "vite preview",
++    "deploy": "gh-pages -d dist"
+   },
+   "dependencies": {
+     "vue": "^3.4.0"
+@@ -13,5 +14,6 @@
+     "vite": "^5.0.0",
+     "@vitejs/plugin-vue": "^5.0.0",
+     "less": "^4.2.0"
+-  }
+-}
++  },
++  "homepage": "https://your-username.github.io/energy-mvp"
++}
+\ No newline at end of file
+diff --git a/vite.config.js b/vite.config.js
+index 971e8d5..11bba6a 100644
+--- a/vite.config.js
++++ b/vite.config.js
+@@ -1,8 +1,10 @@
+ import { defineConfig } from 'vite'
+ import vue from '@vitejs/plugin-vue'
+ 
++// ⚠️ Укажи здесь свой репозиторий (в конце без /)
++const basePath = '/energy-mvp/'
++
+ export default defineConfig({
+   plugins: [vue()],
+-  root: '.',
+-  publicDir: 'public'
+-})
++  base: basePath
++})
+\ No newline at end of file
+-- 
+2.39.2
+
