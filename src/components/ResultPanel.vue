@@ -68,4 +68,33 @@ export default {
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }
+
+@media (max-width: 900px) {
+  .result {
+    max-width: 98vw;
+    padding: 1.5rem 1rem;
+    border-radius: 14px;
+  }
+}
+@media (max-width: 600px) {
+  .result {
+    max-width: 100vw;
+    padding: 1.2rem 0.7rem;
+    border-radius: 14px;
+  }
+  .result h2 {
+    font-size: 1.3rem;
+  }
+  .result__card p {
+    font-size: 1.1rem;
+    margin-bottom: 0.9rem;
+  }
+  .result__close {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
 </style>

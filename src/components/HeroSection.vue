@@ -289,4 +289,90 @@ export default {
 .custom-date-input::-moz-placeholder { color: #fff; opacity: 1; }
 .custom-date-input:-ms-input-placeholder { color: #fff; opacity: 1; }
 .custom-date-input::-ms-input-placeholder { color: #fff; opacity: 1; }
+
+@media (max-width: 900px) {
+  .hero__content {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+  }
+  .hero__illustration {
+    margin-top: 2rem;
+    justify-content: center;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    min-height: unset;
+    padding: 0;
+  }
+  .hero__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+    padding: 1.5rem 0.5rem;
+  }
+  .hero__text {
+    order: 1;
+  }
+  .hero__illustration {
+    order: 2;
+    margin: 2.5rem auto 0 auto;
+    display: block;
+    max-width: 180px;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero__illustration img {
+    display: block;
+    margin: 0 auto;
+  }
+  .hero__text, .hero__form, .hero__benefits {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .hero__text h1, .subtitle, .hero__form, .hero__benefits {
+    text-align: center;
+  }
+  .hero__form {
+    flex-direction: column;
+    gap: 0.9rem;
+    align-items: stretch;
+  }
+  .hero__benefits {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .benefit {
+    max-width: 100%;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 2rem;
+  }
+  .icon img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+  .hero__illustration {
+    margin: 2rem auto 0 auto;
+    display: block;
+    max-width: 180px;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero__illustration img {
+    display: block;
+    margin: 0 auto;
+  }
+  .hide-on-result {
+    display: none !important;
+  }
+}
 </style>
