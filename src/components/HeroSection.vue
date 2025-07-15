@@ -6,10 +6,15 @@
       <div class="hero__text">
         <h1>Что ваша энергия говорит сегодня?</h1>
         <p class="subtitle">
-          Откройте закономерности в отношениях и состоянии ума — на основе даты рождения.
+          Узнай об отношениях и состоянии ума - на основе даты рождения.
         </p>
         <div class="hero__form">
-          <input type="date" v-model="birthdate" placeholder="Дата рождения" />
+          <flat-pickr
+            v-model="birthdate"
+            :config="datePickerConfig"
+            placeholder="Дата рождения"
+            class="custom-date-input"
+          />
           <button @click="$emit('calculate', birthdate)">Открыть карту →</button>
         </div>
         <div class="hero__benefits">
@@ -37,18 +42,37 @@
         </div>
       </div>
       <div class="hero__illustration">
-        <img src="/illustration.png" alt="Медитирующий человек и ключ" />
+        <ResultPanel v-if="result" :result="result" @close="closeResult" />
+        <img v-else src="/illustration.png" alt="Медитирующий человек и ключ" />
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import flatPickr from 'vue-flatpickr-component';
+import 'flatpickr/dist/flatpickr.css';
+import ResultPanel from './ResultPanel.vue';
 export default {
   name: 'HeroSection',
+  components: { flatPickr, ResultPanel },
+  props: {
+    result: Object
+  },
   data() {
     return {
-      birthdate: ''
+      datePickerConfig: {
+        dateFormat: 'd.m.Y',
+        allowInput: true, 
+        maxDate: '01.01.2018',
+        // defaultDate: '01.01.2000',
+      },
+      // birthdate: ''
+    }
+  },
+  methods: {
+    closeResult() {
+      this.$emit('close-result');
     }
   }
 }
@@ -132,8 +156,9 @@ export default {
 
 .hero__form {
   display: flex;
-  gap: 1rem;
+  gap: 0;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .hero__form input {
@@ -145,6 +170,20 @@ export default {
   color: @inputText;
   font-size: 1rem;
   font-family: @fontFamily;
+  z-index: 1;
+}
+
+.hero__form input[type="date"]::placeholder {
+  color: @textColor;
+  opacity: 0.9;
+}
+.hero__form input[type="date"]::-webkit-input-placeholder { color: @textColor; opacity: 0.9; }
+.hero__form input[type="date"]::-moz-placeholder { color: @textColor; opacity: 0.9; }
+.hero__form input[type="date"]:-ms-input-placeholder { color: @textColor; opacity: 0.9; }
+.hero__form input[type="date"]::-ms-input-placeholder { color: @textColor; opacity: 0.9; }
+
+.hero__form input[type="date"]:focus {
+  background: rgba(255,255,255,0.06);
 }
 
 .hero__form button {
@@ -158,6 +197,10 @@ export default {
   cursor: pointer;
   transition: all 0.3s;
   font-weight: 600;
+  position: relative;
+  left: -24px;
+  z-index: 2;
+  box-shadow: 0 2px 8px 0 rgba(60, 0, 80, 0.10);
 }
 
 .hero__form button:hover {
@@ -191,8 +234,8 @@ export default {
   box-shadow: none !important;
 }
 .icon img {
-  max-width: 48px;
-  max-height: 48px;
+  max-width: @iconSize1;
+  max-height: @iconSize1;
   width: auto;
   height: auto;
   display: block;
@@ -234,4 +277,16 @@ export default {
   background: none !important;
   box-shadow: none !important;
 }
+.benefit:nth-child(1) .icon img {
+  max-width: @iconSize2;
+  max-height: @iconSize2;
+}
+.custom-date-input::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+.custom-date-input::-webkit-input-placeholder { color: #fff; opacity: 1; }
+.custom-date-input::-moz-placeholder { color: #fff; opacity: 1; }
+.custom-date-input:-ms-input-placeholder { color: #fff; opacity: 1; }
+.custom-date-input::-ms-input-placeholder { color: #fff; opacity: 1; }
 </style>

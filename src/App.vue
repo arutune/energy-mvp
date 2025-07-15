@@ -1,14 +1,14 @@
 
 <template>
   <div id="app">
-    <HeroSection @calculate="calculateEnergy" />
-    <ResultPanel v-if="result" :result="result" />
+    <HeroSection @calculate="calculateEnergy" :result="result" @close-result="result = null" />
   </div>
 </template>
 
 <script>
 import HeroSection from './components/HeroSection.vue';
 import ResultPanel from './components/ResultPanel.vue';
+import { useToast } from 'vue-toastification';
 export default {
   name: 'App',
   components: {
@@ -22,8 +22,13 @@ export default {
   },
   methods: {
     calculateEnergy(birthdate) {
-      if (!birthdate) return;
+      const toast = useToast();
+      if (!birthdate) {
+        toast.warning('Пожалуйста, введите дату рождения');
+        return;
+      }
       this.result = {
+        birthdate: birthdate,
         energy: 'Гармоничная',
         focus: 'Интуиция',
         sync: 'Открыты для общения'
