@@ -9,7 +9,6 @@
 <script>
 import HeroSection from './components/HeroSection.vue';
 import ResultPanel from './components/ResultPanel.vue';
-alert('Hello World');
 export default {
   name: 'App',
   components: {
@@ -34,11 +33,12 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+@import './styles/theme.less';
 #app {
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  background: linear-gradient(135deg, #3a0ca3, #7209b7);
+  font-family: @fontFamily;
+  color: @textColor;
+  background: @backgroundGradient;
   min-height: 100vh;
   padding: 2rem;
   display: flex;
