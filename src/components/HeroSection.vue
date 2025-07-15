@@ -375,4 +375,84 @@ export default {
     display: none !important;
   }
 }
+@media (max-width: 1000px) {
+  .hero__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem 1.2rem;
+  }
+  .hero__text, .hero__form, .hero__benefits {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .hero__text h1 {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 1.7rem;
+  }
+  .hero__form input,
+  .hero__form .custom-date-input,
+  .hero__form button {
+    font-size: 1.2rem;
+    padding: 1.1rem 1.2rem;
+    border-radius: 16px;
+  }
+  .icon {
+    width: 52px;
+    height: 52px;
+    font-size: 2.2rem;
+  }
+  .icon img {
+    max-width: 44px;
+    max-height: 44px;
+  }
+  .hero__illustration {
+    margin: 2.5rem auto 0 auto;
+    max-width: 220px;
+  }
+}
+@media (max-width: 800px) {
+  .hero__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+    padding: 2rem 0.7rem;
+  }
+  .hero__text, .hero__form, .hero__benefits {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .hero__text h1 {
+    font-size: 2.1rem;
+  }
+  .subtitle {
+    font-size: 1.15rem;
+    margin-bottom: 1.3rem;
+  }
+  .hero__form input,
+  .hero__form .custom-date-input,
+  .hero__form button {
+    font-size: 1.13rem;
+    padding: 1rem 1.1rem;
+    border-radius: 14px;
+  }
+  .icon {
+    width: 46px;
+    height: 46px;
+    font-size: 1.9rem;
+  }
+  .icon img {
+    max-width: 36px;
+    max-height: 36px;
+  }
+  .hero__illustration {
+    margin: 2rem auto 0 auto;
+    max-width: 170px;
+  }
+}
 </style>
