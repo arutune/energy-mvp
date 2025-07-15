@@ -2,18 +2,21 @@
 <template>
   <div id="app">
     <HeroSection @calculate="calculateEnergy" :result="result" @close-result="result = null" />
+    <About />
   </div>
 </template>
 
 <script>
 import HeroSection from './components/HeroSection.vue';
 import ResultPanel from './components/ResultPanel.vue';
+import About from './components/About.vue';
 import { useToast } from 'vue-toastification';
 export default {
   name: 'App',
   components: {
     HeroSection,
-    ResultPanel
+    ResultPanel,
+    About
   },
   data() {
     return {
